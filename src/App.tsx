@@ -37,6 +37,7 @@ function App() {
   const [counters, setCounters] = useState({ projects: 0, clients: 0, years: 0 })
   const [activeSection, setActiveSection] = useState('home')
   const [formSent, setFormSent] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -91,20 +92,41 @@ function App() {
       <nav className="fixed top-0 left-0 right-0 z-40 glass">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src="/vexorix.tech.png" alt="Vexorix Logo" className="w-10 h-10 object-contain" />
-            <h1 className="text-3xl font-bold gradient-text" style={{fontFamily: "'Playfair Display', serif", letterSpacing: '0.05em'}}>Vexorix</h1>
+            <img src="/vexorix.tech.png" alt="Vexorix Logo" className="w-8 h-8 md:w-10 md:h-10 object-contain" />
+            <h1 className="text-2xl md:text-3xl font-bold gradient-text" style={{fontFamily: "'Playfair Display', serif", letterSpacing: '0.05em'}}>Vexorix</h1>
           </div>
-          <div className="flex items-center gap-8">
-            <a href="#home" className={`transition-colors ${activeSection === 'home' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Home</a>
-            <a href="#about" className={`transition-colors ${activeSection === 'about' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>About</a>
-            <a href="#services" className={`transition-colors ${activeSection === 'services' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Services</a>
-            <a href="#portfolio" className={`transition-colors ${activeSection === 'portfolio' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Portfolio</a>
-            <a href="#why-choose" className={`transition-colors ${activeSection === 'why-choose' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Why Us</a>
-            <a href="#testimonials" className={`transition-colors ${activeSection === 'testimonials' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Testimonials</a>
-            <a href="#pricing" className={`transition-colors ${activeSection === 'pricing' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Pricing</a>
-            <a href="#contact" className={`transition-colors ${activeSection === 'contact' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Contact</a>
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
+            <a href="#home" className={`transition-colors text-sm lg:text-base ${activeSection === 'home' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Home</a>
+            <a href="#about" className={`transition-colors text-sm lg:text-base ${activeSection === 'about' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>About</a>
+            <a href="#services" className={`transition-colors text-sm lg:text-base ${activeSection === 'services' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Services</a>
+            <a href="#portfolio" className={`transition-colors text-sm lg:text-base ${activeSection === 'portfolio' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Portfolio</a>
+            <a href="#why-choose" className={`transition-colors text-sm lg:text-base ${activeSection === 'why-choose' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Why Us</a>
+            <a href="#testimonials" className={`transition-colors text-sm lg:text-base ${activeSection === 'testimonials' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Testimonials</a>
+            <a href="#pricing" className={`transition-colors text-sm lg:text-base ${activeSection === 'pricing' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Pricing</a>
+            <a href="#contact" className={`transition-colors text-sm lg:text-base ${activeSection === 'contact' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Contact</a>
           </div>
+          <button 
+            className="md:hidden w-10 h-10 glass rounded-full flex items-center justify-center text-xl"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? '✕' : '☰'}
+          </button>
         </div>
+        
+        {mobileMenuOpen && (
+          <div className="md:hidden glass border-t border-[#1f1f2e] px-6 py-4">
+            <div className="flex flex-col gap-4">
+              <a href="#home" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'home' ? 'text-[#FFD700]' : 'text-gray-300'}`}>Home</a>
+              <a href="#about" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'about' ? 'text-[#FFD700]' : 'text-gray-300'}`}>About</a>
+              <a href="#services" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'services' ? 'text-[#FFD700]' : 'text-gray-300'}`}>Services</a>
+              <a href="#portfolio" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'portfolio' ? 'text-[#FFD700]' : 'text-gray-300'}`}>Portfolio</a>
+              <a href="#why-choose" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'why-choose' ? 'text-[#FFD700]' : 'text-gray-300'}`}>Why Us</a>
+              <a href="#testimonials" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'testimonials' ? 'text-[#FFD700]' : 'text-gray-300'}`}>Testimonials</a>
+              <a href="#pricing" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'pricing' ? 'text-[#FFD700]' : 'text-gray-300'}`}>Pricing</a>
+              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'contact' ? 'text-[#FFD700]' : 'text-gray-300'}`}>Contact</a>
+            </div>
+          </div>
+        )}
       </nav>
 
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 fade-in">
