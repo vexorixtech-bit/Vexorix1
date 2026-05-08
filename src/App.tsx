@@ -136,7 +136,7 @@ function App() {
         
         <div className="relative z-10 text-center px-6 animate-slide-up">
           <div className="mb-8 inline-block">
-            <img src="/vexorix.tech.png" alt="Vexorix Logo" className="w-36 h-36 md:w-44 md:h-44 mx-auto object-contain drop-shadow-[0_0_40px_rgba(255,215,0,0.5)] animate-float" style={{backgroundColor: 'transparent'}} />
+            <img src="/vexorix.tech.png" alt="Vexorix Logo" className="w-40 h-40 md:w-48 md:h-48 mx-auto object-contain drop-shadow-[0_0_40px_rgba(255,215,0,0.5)] animate-float" style={{backgroundColor: 'transparent'}} />
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
             We Build Modern<br />
