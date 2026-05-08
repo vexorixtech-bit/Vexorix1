@@ -66,7 +66,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    const targets = { projects: 7, clients: 20, years: 3 }
+    const targets = { projects: 7, clients: 20, years: 1 }
     const interval = setInterval(() => {
       setCounters(prev => {
         if (prev.projects >= targets.projects) {
