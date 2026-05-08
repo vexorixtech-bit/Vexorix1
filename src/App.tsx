@@ -157,7 +157,7 @@ function App() {
             <span className="gradient-text">Websites That Convert</span>
           </h1>
           <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-            Freelance web development services tailored to grow your business
+            Freelance web development , logo , Posters services tailored to grow your business
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <a href="#portfolio" className="px-8 py-4 bg-gradient-to-r from-[#FFD700] to-[#FFE44D] rounded-full font-semibold hover:scale-105 transition-transform">
