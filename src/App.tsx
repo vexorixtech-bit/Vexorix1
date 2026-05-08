@@ -9,14 +9,14 @@ const services = [
 ]
 
 const projects = [
-  { id: 1, category: 'Business', title: 'Restaurant Website', img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop', tech: ['React', 'Node.js', 'MongoDB'], desc: 'Online reservation-enabled restaurant website designed to improve customer engagement and increase bookings.', demo: 'https://u-me-couple-cafe.vercel.app/' },
-  { id: 2, category: 'Healthcare', title: 'Hospital Management System', img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop', tech: ['React', 'Node.js', 'MySQL'], desc: 'Smart hospital management system simplifying appointments, doctor scheduling, and patient communication.', demo: 'https://hospital-system-management.vercel.app/' },
-  { id: 3, category: 'E-commerce', title: 'Department Store', img: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop', tech: ['React', 'Node.js', 'PostgreSQL'], desc: 'Conversion-focused online store with structured catalog, cart system, and smooth checkout experience.', demo: '#' },
-  { id: 4, category: 'Portfolio', title: 'Photography Portfolio', img: 'https://images.unsplash.com/photo-1452587925706-56dedf209dad?w=600&h=400&fit=crop', tech: ['React', 'TypeScript'], desc: 'Visually rich portfolio designed to attract clients and showcase professional photography work.', demo: 'https://vicky-photography.vercel.app/' },
-  { id: 5, category: 'Fitness', title: 'Gym & Fitness Website', img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop', tech: ['React', 'Node.js', 'MongoDB'], desc: 'High-conversion fitness website to boost memberships and highlight training programs.', demo: 'https://vikramgym.vercel.app/' },
-  { id: 6, category: 'Events', title: 'Event Management', img: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=400&fit=crop', tech: ['React', 'Node.js', 'MySQL'], desc: 'Complete event booking platform built to generate leads and streamline event management.', demo: 'https://atozevent.netlify.app/' },
-  { id: 7, category: 'Real Estate', title: 'Real Estate Website', img: 'https://images.unsplash.com/photo-1560512823-829485b8bf24?w=600&h=400&fit=crop', tech: ['React', 'Node.js', 'PostgreSQL'], desc: 'Modern real estate platform for showcasing properties and capturing buyer enquiries.', demo: 'https://real-estate-project-rose-tau.vercel.app/' },
-  { id: 8, category: 'Business', title: 'Business Website', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop', tech: ['React', 'Node.js', 'MongoDB'], desc: 'Professional business website designed for new companies to establish a strong online presence, showcase services, and attract potential clients from day one.', demo: '#' },
+  { id: 1, category: 'Business', title: 'Restaurant Website', img: 'https://th.bing.com/th/id/OIP.oTLxM8GGuTImdvxyH9sbBAHaEJ?w=269&h=180&c=7&r=0&o=7&pid=1.7&rm=3', tech: ['React', 'Node.js', 'MongoDB'], desc: 'Online reservation-enabled restaurant website designed to improve customer engagement and increase bookings.', demo: 'https://u-me-couple-cafe.vercel.app/' },
+  { id: 2, category: 'Healthcare', title: 'Hospital Management System', img: 'https://picsum.photos/seed/hospital/600/400', tech: ['React', 'Node.js', 'MySQL'], desc: 'Smart hospital management system simplifying appointments, doctor scheduling, and patient communication.', demo: 'https://hospital-system-management.vercel.app/' },
+  { id: 3, category: 'E-commerce', title: 'Department Store', img: 'https://picsum.photos/seed/store/600/400', tech: ['React', 'Node.js', 'PostgreSQL'], desc: 'Conversion-focused online store with structured catalog, cart system, and smooth checkout experience.', demo: '#' },
+  { id: 4, category: 'Portfolio', title: 'Photography Portfolio', img: 'https://picsum.photos/seed/photography/600/400', tech: ['React', 'TypeScript'], desc: 'Visually rich portfolio designed to attract clients and showcase professional photography work.', demo: 'https://vicky-photography.vercel.app/' },
+  { id: 5, category: 'Fitness', title: 'Gym & Fitness Website', img: 'https://th.bing.com/th/id/OIP.7hye5FcJzv7S1S_97OuNvAHaE7?w=278&h=185&c=7&r=0&o=7&pid=1.7&rm=3', tech: ['React', 'Node.js', 'MongoDB'], desc: 'High-conversion fitness website to boost memberships and highlight training programs.', demo: 'https://vikramgym.vercel.app/' },
+  { id: 6, category: 'Events', title: 'Event Management', img: 'https://th.bing.com/th/id/OIP.7hye5FcJzv7S1S_97OuNvAHaE7?w=278&h=185&c=7&r=0&o=7&pid=1.7&rm=3', tech: ['React', 'Node.js', 'MySQL'], desc: 'Complete event booking platform built to generate leads and streamline event management.', demo: 'https://atozevent.netlify.app/' },
+  { id: 7, category: 'Real Estate', title: 'Real Estate Website', img: 'https://picsum.photos/seed/realestate/600/400', tech: ['React', 'Node.js', 'PostgreSQL'], desc: 'Modern real estate platform for showcasing properties and capturing buyer enquiries.', demo: 'https://real-estate-project-rose-tau.vercel.app/' },
+  { id: 8, category: 'Business', title: 'Business Website', img: 'https://th.bing.com/th/id/OIP.oTLxM8GGuTImdvxyH9sbBAHaEJ?w=269&h=180&c=7&r=0&o=7&pid=1.7&rm=3', tech: ['React', 'Node.js', 'MongoDB'], desc: 'Professional business website designed for new companies to establish a strong online presence, showcase services, and attract potential clients from day one.', demo: '#' },
 ]
 
 const testimonials = [
@@ -152,12 +152,6 @@ function App() {
             <a href="#contact" className="px-8 py-4 glass rounded-full font-semibold hover:scale-105 transition-transform hover:bg-white/10">
               Hire Me
             </a>
-          </div>
-        </div>
-
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-float">
-          <div className="w-6 h-10 rounded-full border-2 border-gray-500 p-1">
-            <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
           </div>
         </div>
       </section>
