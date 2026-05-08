@@ -26,9 +26,9 @@ const testimonials = [
 ]
 
 const pricingPlans = [
-  { name: 'Basic', price: '₹4,999', features: ['Single Page Website', 'Responsive Design', 'Contact Form', 'Social Links', '2 Revisions'], popular: false },
-  { name: 'Standard', price: '₹9,999', features: ['Multi-Page Website (5-8 pages)', 'CMS Integration', 'SEO Optimization', 'Contact Form + WhatsApp Button', 'Google Maps Integration', 'Analytics Setup', '4 Revisions'], popular: true },
-  { name: 'Premium', price: '₹24,999', features: ['Full Custom Website (10+ Pages)', 'E-commerce / Booking System', 'API Development', 'Database Setup', 'Priority Support', 'Unlimited Revisions', '1 Month Free Maintenance'], popular: false },
+  { name: 'Basic', price: '₹4,999 / $69', features: ['Single Page Website', 'Responsive Design', 'Contact Form', 'Social Links', '2 Revisions'], popular: false },
+  { name: 'Standard', price: '₹9,999 / $129', features: ['Multi-Page Website (5-8 pages)', 'CMS Integration', 'SEO Optimization', 'Contact Form + WhatsApp Button', 'Google Maps Integration', 'Analytics Setup', '4 Revisions'], popular: true },
+  { name: 'Premium', price: '₹24,999 / $299', features: ['Full Custom Website (10+ Pages)', 'E-commerce / Booking System', 'API Development', 'Database Setup', 'Priority Support', 'Unlimited Revisions', '1 Month Free Maintenance'], popular: false },
 ]
 
 function App() {
