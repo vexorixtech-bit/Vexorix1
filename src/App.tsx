@@ -176,7 +176,7 @@ function App() {
             About <span className="gradient-text">Vexorix</span>
           </h2>
           <p className="text-gray-400 text-center mb-16 max-w-3xl mx-auto reveal">
-            We are a freelance web development agency specializing in building modern, high-converting websites and web applications. With expertise across multiple industries, we deliver tailored digital solutions that help businesses grow their online presence and achieve their goals.
+            At Vexorix.tech, we transform ideas into impactful digital experiences. Specializing in website design, logo creation, and poster design, we bring creativity and expertise to every project. With over a year of experience and multiple successful projects under our belt, we've helped brands grow their identity and online presence. We are committed to quality, creativity, and client satisfaction — every single time.
           </p>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="reveal-left">
@@ -186,10 +186,10 @@ function App() {
               </p>
               <h3 className="text-2xl font-semibold mb-4 reveal delay-3">What We Do</h3>
               <ul className="space-y-3 text-gray-400 reveal delay-4">
-                <li className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Custom website development</li>
-                <li className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> E-commerce solutions</li>
-                <li className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Full-stack applications</li>
-                <li className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> UI/UX design</li>
+                <li className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Website design</li>
+                <li className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Logo creation</li>
+                <li className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Poster design</li>
+                <li className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Brand identity</li>
               </ul>
             </div>
             <div className="glass rounded-2xl p-8 reveal-right">
