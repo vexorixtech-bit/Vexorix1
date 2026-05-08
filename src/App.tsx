@@ -424,6 +424,16 @@ function App() {
                   <p>📍 2/544 Anna Nagar, Chennai - 600002</p>
                 </div>
               </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-4">Services</h3>
+                <div className="space-y-3 text-gray-400">
+                  <p className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Websites</p>
+                  <p className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Logo</p>
+                  <p className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Posters</p>
+                  <p className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Meta ad</p>
+                  <p className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> SEO</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
