@@ -27,8 +27,8 @@ const testimonials = [
 
 const pricingPlans = [
   { name: 'Basic', price: '₹4,999', features: ['Single Page Website', 'Responsive Design', 'Contact Form', 'Social Links', '2 Revisions'], popular: false },
-  { name: 'Standard', price: '₹9,999', features: ['Multi-Page Website (5-8 pages)', 'CMS Integration', 'SEO Optimization', 'Contact Form + WhatsApp Button', 'Google Maps Integration', 'Analytics Setup', '4 Revisions'], popular: true, icon: '🌟' },
-  { name: 'Premium', price: '₹24,999', features: ['Full Custom Website (10+ Pages)', 'E-commerce / Booking System', 'API Development', 'Database Setup', 'Priority Support', 'Unlimited Revisions', '1 Month Free Maintenance'], popular: false, icon: '👑' },
+  { name: 'Standard', price: '₹9,999', features: ['Multi-Page Website (5-8 pages)', 'CMS Integration', 'SEO Optimization', 'Contact Form + WhatsApp Button', 'Google Maps Integration', 'Analytics Setup', '4 Revisions'], popular: true },
+  { name: 'Premium', price: '₹24,999', features: ['Full Custom Website (10+ Pages)', 'E-commerce / Booking System', 'API Development', 'Database Setup', 'Priority Support', 'Unlimited Revisions', '1 Month Free Maintenance'], popular: false },
 ]
 
 function App() {
@@ -352,7 +352,7 @@ function App() {
             {pricingPlans.map((plan, idx) => (
               <div key={idx} className={`glass rounded-2xl p-8 relative reveal delay-${idx + 1} ${plan.popular ? 'gradient-border' : ''}`}>
                 {plan.popular && <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-[#FFD700] to-[#FFE44D] rounded-full text-xs font-semibold">Most Popular</span>}
-                <h3 className="text-xl font-semibold mb-2">{plan.icon || ''} {plan.name}</h3>
+                <h3 className="text-xl font-semibold mb-2">{plan.name}</h3>
                 <p className="text-4xl font-bold gradient-text mb-6">{plan.price}</p>
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature, i) => (
