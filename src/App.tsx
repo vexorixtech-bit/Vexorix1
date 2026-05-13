@@ -10,12 +10,11 @@ const services = [
 
 const projects = [
   { id: 1, category: 'Business', title: 'Restaurant', img: 'https://images.pexels.com/photos/36749693/pexels-photo-36749693.jpeg', tech: ['React', 'Node.js', 'MongoDB'], desc: 'Online reservation-enabled restaurant website designed to improve customer engagement and increase bookings.', demo: 'https://u-me-couple-cafe.vercel.app/' },
-  { id: 2, category: 'Healthcare', title: 'Hospital Management System', img: 'https://images.pexels.com/photos/36897678/pexels-photo-36897678.jpeg', tech: ['React', 'Node.js', 'MySQL'], desc: 'Smart hospital management system simplifying appointments, doctor scheduling, and patient communication.', demo: 'https://hospital-system-management.vercel.app/' },
-  { id: 3, category: 'E-commerce', title: 'Department Store', img: 'https://images.pexels.com/photos/4053267/pexels-photo-4053267.jpeg', tech: ['React', 'Node.js', 'PostgreSQL'], desc: 'Conversion-focused online store with structured catalog, cart system, and smooth checkout experience.', demo: '#' },
-  { id: 4, category: 'Portfolio', title: 'Photography Portfolio', img: 'https://images.pexels.com/photos/33714946/pexels-photo-33714946.jpeg', tech: ['React', 'TypeScript'], desc: 'Visually rich portfolio designed to attract clients and showcase professional photography work.', demo: 'https://vicky-photography.vercel.app/' },
-  { id: 5, category: 'Fitness', title: 'Gym & Fitness', img: 'https://images.pexels.com/photos/17211446/pexels-photo-17211446.jpeg', tech: ['React', 'Node.js', 'MongoDB'], desc: 'High-conversion fitness website to boost memberships and highlight training programs.', demo: 'https://vikramgym.vercel.app/' },
-  { id: 6, category: 'Events', title: 'Event Management', img: 'https://images.pexels.com/photos/35042459/pexels-photo-35042459.jpeg', tech: ['React', 'Node.js', 'MySQL'], desc: 'Complete event booking platform built to generate leads and streamline event management.', demo: 'https://atozevent.netlify.app/' },
-  { id: 7, category: 'Real Estate', title: 'Real Estate', img: 'https://images.pexels.com/photos/27307399/pexels-photo-27307399.jpeg', tech: ['React', 'Node.js', 'PostgreSQL'], desc: 'Modern real estate platform for showcasing properties and capturing buyer enquiries.', demo: 'https://real-estate-project-rose-tau.vercel.app/' },
+  { id: 2, category: 'Healthcare', title: 'Hospital Management System', img: 'https://images.pexels.com/photos/36897678/pexels-photo-36897678.jpeg', tech: ['React', 'Node.js', 'MySQL'], desc: 'Smart hospital management system simplifying appointments, doctor scheduling, and patient communication.', demo: '#' },
+  { id: 4, category: 'Portfolio', title: 'Photography Portfolio', img: 'https://images.pexels.com/photos/33714946/pexels-photo-33714946.jpeg', tech: ['React', 'TypeScript'], desc: 'Visually rich portfolio designed to attract clients and showcase professional photography work.', demo: '#' },
+  { id: 5, category: 'Fitness', title: 'Gym & Fitness', img: 'https://images.pexels.com/photos/17211446/pexels-photo-17211446.jpeg', tech: ['React', 'Node.js', 'MongoDB'], desc: 'High-conversion fitness website to boost memberships and highlight training programs.', demo: '#' },
+  { id: 6, category: 'Events', title: 'Event Management', img: 'https://images.pexels.com/photos/35042459/pexels-photo-35042459.jpeg', tech: ['React', 'Node.js', 'MySQL'], desc: 'Complete event booking platform built to generate leads and streamline event management.', demo: '#' },
+  { id: 7, category: 'Real Estate', title: 'Real Estate', img: 'https://images.pexels.com/photos/27307399/pexels-photo-27307399.jpeg', tech: ['React', 'Node.js', 'PostgreSQL'], desc: 'Modern real estate platform for showcasing properties and capturing buyer enquiries.', demo: '#' },
   { id: 8, category: 'Business', title: 'Business', img: 'https://images.pexels.com/photos/1604024/pexels-photo-1604024.jpeg', tech: ['React', 'Node.js', 'MongoDB'], desc: 'Professional business website designed for new companies to establish a strong online presence, showcase services, and attract potential clients from day one.', demo: '#' },
 ]
 
@@ -275,7 +274,7 @@ function App() {
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                   <p className="text-gray-400 text-sm mb-4">{project.desc}</p>
-                  <a href={project.demo} target="_blank" rel="noopener noreferrer" className="text-[#FFD700] hover:underline inline-flex items-center gap-1">Live Demo →</a>
+                  {project.demo !== '#' && <a href={project.demo} target="_blank" rel="noopener noreferrer" className="text-[#FFD700] hover:underline inline-flex items-center gap-1">Live Demo →</a>}
                 </div>
               </div>
             ))}
