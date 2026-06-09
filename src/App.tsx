@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 import './index.css'
 
 const services = [
@@ -101,6 +102,21 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
+      <Helmet>
+        <title>Vexorix | Web Developer & Digital Marketer Chennai</title>
+        <meta name="description" content="Vexorix — Professional Web Development, Digital Marketing, Graphic Design, Poster Design & Ad Campaigns in Chennai, India." />
+        <meta name="keywords" content="web developer Chennai, digital marketing Chennai, graphic design Chennai, freelance web developer Chennai" />
+        <link rel="canonical" href="https://vexorix-tech.vercel.app/" />
+        <meta property="og:title" content="Vexorix | Web Developer & Digital Marketer Chennai" />
+        <meta property="og:description" content="Vexorix — Professional Web Development, Digital Marketing, Graphic Design, Poster Design & Ad Campaigns in Chennai, India." />
+        <meta property="og:image" content="https://vexorix-tech.vercel.app/vexorix.tech.png" />
+        <meta property="og:url" content="https://vexorix-tech.vercel.app/" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Vexorix | Web Developer & Digital Marketer Chennai" />
+        <meta name="twitter:description" content="Vexorix — Professional Web Development, Digital Marketing, Graphic Design, Poster Design & Ad Campaigns in Chennai, India." />
+        <meta name="twitter:image" content="https://vexorix-tech.vercel.app/vexorix.tech.png" />
+      </Helmet>
       <div className="fixed top-0 left-0 h-1 bg-gradient-to-r from-[#FFD700] to-[#FFE44D] z-50 transition-all duration-150" style={{ width: `${scrollProgress}%` }}></div>
 
       <nav className="fixed top-0 left-0 right-0 z-40 glass">
