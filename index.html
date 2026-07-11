@@ -14,19 +14,25 @@
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "Vexorix",
+      "description": "Professional Web Development, Digital Marketing, Graphic Design, Poster Design and Ad Campaigns in Chennai.",
+      "url": "https://vexorix1.vercel.app/",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Chennai",
         "addressRegion": "Tamil Nadu",
-        "addressCountry": "India"
+        "addressCountry": "IN"
       },
-      "serviceType": [
-        "Web Development",
-        "Digital Marketing",
-        "Graphic Design",
-        "Poster Design",
-        "Ad Campaigns"
-      ]
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Digital Services",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Web Development"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Digital Marketing"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Graphic Design"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Poster Design"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ad Campaigns"}}
+        ]
+      }
     }
     </script>
   </head>
