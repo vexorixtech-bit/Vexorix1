@@ -41,28 +41,37 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
+    let ticking = false
     const handleScroll = () => {
-      const scroll = window.scrollY
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight
-      setScrollProgress((scroll / docHeight) * 100)
-
-      const sectionIds = ['home', 'about', 'services', 'portfolio', 'why-choose', 'testimonials', 'pricing', 'contact']
-      let currentSection = 'home'
-
-      for (const id of sectionIds) {
-        const el = document.getElementById(id)
-        if (el) {
-          const rect = el.getBoundingClientRect()
-          const offset = window.scrollY + rect.top
-          if (scroll >= offset - 200) {
-            currentSection = id
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scroll = window.scrollY
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight
+          if (docHeight > 0) {
+            setScrollProgress((scroll / docHeight) * 100)
           }
-        }
-      }
 
-      setActiveSection(currentSection)
+          const sectionIds = ['home', 'about', 'services', 'portfolio', 'why-choose', 'testimonials', 'pricing', 'contact']
+          let currentSection = 'home'
+
+          for (const id of sectionIds) {
+            const el = document.getElementById(id)
+            if (el) {
+              const rect = el.getBoundingClientRect()
+              const offset = window.scrollY + rect.top
+              if (scroll >= offset - 200) {
+                currentSection = id
+              }
+            }
+          }
+
+          setActiveSection(currentSection)
+          ticking = false
+        })
+        ticking = true
+      }
     }
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -120,10 +129,10 @@ function App() {
       <div className="fixed top-0 left-0 h-1 bg-gradient-to-r from-[#FFD700] to-[#FFE44D] z-50 transition-all duration-150" style={{ width: `${scrollProgress}%` }}></div>
 
       <nav className="fixed top-0 left-0 right-0 z-40 glass">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
           <a href="#home" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             <img src="/vexorix.tech.png" alt="Vexorix Logo" className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-            <h1 className="text-lg md:text-2xl lg:text-3xl font-bold gradient-text" style={{fontFamily: "'Playfair Display', serif", letterSpacing: '0.05em'}}>Vexorix.tech</h1>
+            <h1 className="text-base sm:text-lg md:text-2xl lg:text-3xl font-bold gradient-text" style={{fontFamily: "'Playfair Display', serif", letterSpacing: '0.05em'}}>Vexorix.tech</h1>
           </a>
           <div className="hidden md:flex items-center gap-6 lg:gap-8">
             <a href="#home" className={`transition-colors text-sm lg:text-base ${activeSection === 'home' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Home</a>
@@ -136,7 +145,7 @@ function App() {
             <a href="#contact" className={`transition-colors text-sm lg:text-base ${activeSection === 'contact' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Contact</a>
           </div>
           <button 
-            className="md:hidden w-10 h-10 glass rounded-full flex items-center justify-center text-xl"
+            className="md:hidden w-9 h-9 sm:w-10 sm:h-10 glass rounded-full flex items-center justify-center text-lg sm:text-xl"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? '✕' : '☰'}
@@ -145,7 +154,7 @@ function App() {
         
         {mobileMenuOpen && (
           <div className="md:hidden glass border-t border-[#1f1f2e] px-6 py-4">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3 sm:gap-4">
               <a href="#home" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'home' ? 'text-[#FFD700]' : 'text-gray-300'}`}>Home</a>
               <a href="#about" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'about' ? 'text-[#FFD700]' : 'text-gray-300'}`}>About</a>
               <a href="#services" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'services' ? 'text-[#FFD700]' : 'text-gray-300'}`}>Services</a>
@@ -159,77 +168,77 @@ function App() {
         )}
       </nav>
 
-      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 fade-in">
+      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 sm:pt-20 fade-in">
         <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/10 via-transparent to-[#FFE44D]/10"></div>
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#FFD700]/20 rounded-full blur-3xl animate-pulse-glow"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-[#FFE44D]/20 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute top-1/4 left-1/4 w-32 sm:w-64 h-32 sm:h-64 bg-[#FFD700]/20 rounded-full blur-3xl animate-pulse-glow"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-32 sm:w-64 h-32 sm:h-64 bg-[#FFE44D]/20 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1.5s' }}></div>
         
         <div className="relative z-10 text-center px-6 animate-slide-up">
           <div className="mb-8 inline-block">
-            <img src="/vexorix.tech.png" alt="Vexorix Logo" className="w-40 h-40 md:w-80 md:h-80 mx-auto object-contain drop-shadow-[0_0_40px_rgba(255,215,0,0.5)] animate-float" style={{backgroundColor: 'transparent'}} />
+            <img src="/vexorix.tech.png" alt="Vexorix Logo" className="w-32 h-32 sm:w-40 sm:h-40 md:w-80 md:h-80 mx-auto object-contain drop-shadow-[0_0_40px_rgba(255,215,0,0.5)] sm:animate-float" style={{backgroundColor: 'transparent'}} />
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-7xl font-bold mb-4 sm:mb-6">
             We Build Modern<br />
             <span className="gradient-text">Websites That Convert</span>
           </h1>
-          <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 mb-8 sm:mb-10 max-w-2xl mx-auto">
             Freelance For Websites,logo,Posters services tailored to grow your business
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <a href="#portfolio" className="px-8 py-4 bg-gradient-to-r from-[#FFD700] to-[#FFE44D] rounded-full font-semibold hover:scale-105 transition-transform">
+            <a href="#portfolio" className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#FFD700] to-[#FFE44D] rounded-full font-semibold hover:scale-105 transition-transform text-sm sm:text-base">
               View Portfolio
             </a>
-            <a href="#contact" className="px-8 py-4 glass rounded-full font-semibold hover:scale-105 transition-transform hover:bg-white/10">
+            <a href="#contact" className="px-6 sm:px-8 py-3 sm:py-4 glass rounded-full font-semibold hover:scale-105 transition-transform hover:bg-white/10 text-sm sm:text-base">
               Hire Me
             </a>
           </div>
         </div>
       </section>
 
-      <section id="about" className="py-24 px-6 scroll-mt-20 reveal-left">
+      <section id="about" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20 reveal-left">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-4 reveal">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 reveal">
             About <span className="gradient-text">Vexorix</span>
           </h2>
-          <p className="text-gray-400 text-center mb-16 max-w-3xl mx-auto reveal">
+          <p className="text-gray-400 text-center mb-10 sm:mb-16 max-w-3xl mx-auto reveal text-sm sm:text-base">
             At Vexorix.tech, we transform ideas into impactful digital experiences. Specializing in website design, logo creation, and poster design, we bring creativity and expertise to every project. With over a year of experience and multiple successful projects under our belt, we've helped brands grow their identity and online presence. We are committed to quality, creativity, and client satisfaction — every single time.
           </p>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="reveal-left">
-              <h3 className="text-2xl font-semibold mb-4 reveal delay-1">Our Mission</h3>
-              <p className="text-gray-400 mb-6 reveal delay-2">
+              <h3 className="text-xl sm:text-2xl font-semibold mb-4 reveal delay-1">Our Mission</h3>
+              <p className="text-gray-400 mb-6 reveal delay-2 text-sm sm:text-base">
                 To empower businesses with cutting-edge web solutions that drive growth, engagement, and success in the digital landscape.
               </p>
-              <h3 className="text-2xl font-semibold mb-4 reveal delay-3">What We Do</h3>
-              <ul className="space-y-3 text-gray-400 reveal delay-4">
+              <h3 className="text-xl sm:text-2xl font-semibold mb-4 reveal delay-3">What We Do</h3>
+              <ul className="space-y-2 sm:space-y-3 text-gray-400 reveal delay-4">
                 <li className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Website design</li>
                 <li className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Logo creation</li>
                 <li className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Poster design</li>
                 <li className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Brand identity</li>
               </ul>
             </div>
-            <div className="glass rounded-2xl p-8 reveal-right">
-              <h3 className="text-2xl font-semibold mb-6 reveal">Why Vexorix?</h3>
-              <div className="space-y-4">
+            <div className="glass rounded-2xl p-6 sm:p-8 reveal-right">
+              <h3 className="text-xl sm:text-2xl font-semibold mb-6 reveal">Why Vexorix?</h3>
+              <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-start gap-3 reveal delay-1">
                   <span className="text-[#FFD700] text-xl">🚀</span>
                   <div>
                     <h4 className="font-semibold">Fast Delivery</h4>
-                    <p className="text-gray-400 text-sm">Quick turnaround without compromising quality</p>
+                    <p className="text-gray-400 text-xs sm:text-sm">Quick turnaround without compromising quality</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 reveal delay-2">
                   <span className="text-[#FFE44D] text-xl">🎨</span>
                   <div>
                     <h4 className="font-semibold">Modern Design</h4>
-                    <p className="text-gray-400 text-sm">Pixel-perfect UIs that convert visitors to customers</p>
+                    <p className="text-gray-400 text-xs sm:text-sm">Pixel-perfect UIs that convert visitors to customers</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 reveal delay-3">
                   <span className="text-[#FFD700] text-xl">⚡</span>
                   <div>
                     <h4 className="font-semibold">Scalable Solutions</h4>
-                    <p className="text-gray-400 text-sm">Built to grow with your business needs</p>
+                    <p className="text-gray-400 text-xs sm:text-sm">Built to grow with your business needs</p>
                   </div>
                 </div>
               </div>
@@ -238,59 +247,59 @@ function App() {
         </div>
       </section>
 
-      <section id="services" className="py-24 px-6 scroll-mt-20 reveal-right">
+      <section id="services" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20 reveal-right">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-4 reveal">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 reveal">
             Our <span className="gradient-text">Services</span>
           </h2>
-          <p className="text-gray-400 text-center mb-16 max-w-2xl mx-auto reveal">
+          <p className="text-gray-400 text-center mb-10 sm:mb-16 max-w-2xl mx-auto reveal text-sm sm:text-base">
             Comprehensive web solutions tailored to your business needs
           </p>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {services.map((service, idx) => (
-              <div key={idx} className={`glass rounded-2xl p-6 hover-lift reveal-scale delay-${idx + 1}`}>
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                <p className="text-gray-400 text-sm">{service.desc}</p>
+              <div key={idx} className={`glass rounded-2xl p-4 sm:p-6 hover-lift reveal-scale delay-${idx + 1}`}>
+                <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">{service.icon}</div>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2">{service.title}</h3>
+                <p className="text-gray-400 text-xs sm:text-sm">{service.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="portfolio" className="py-24 px-6 bg-[#12121a] scroll-mt-20 reveal">
+      <section id="portfolio" className="py-16 sm:py-24 px-4 sm:px-6 bg-[#12121a] scroll-mt-20 reveal">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-4 reveal">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 reveal">
             Our <span className="gradient-text">Portfolio</span>
           </h2>
-          <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto reveal">
+          <p className="text-gray-400 text-center mb-8 sm:mb-12 max-w-2xl mx-auto reveal text-sm sm:text-base">
             Showcasing our best work across various industries
           </p>
 
           <div className="flex gap-4 justify-center mb-12 flex-wrap reveal">
             {['All', 'Business', 'Healthcare', 'E-commerce', 'Portfolio', 'Fitness', 'Events', 'Real Estate'].map(cat => (
-              <button key={cat} onClick={() => setFilter(cat)} className={`px-6 py-2 rounded-full transition-all ${filter === cat ? 'bg-gradient-to-r from-[#FFD700] to-[#FFE44D]' : 'glass hover:bg-white/10'}`}>
+              <button key={cat} onClick={() => setFilter(cat)} className={`px-4 sm:px-6 py-1.5 sm:py-2 rounded-full transition-all text-sm sm:text-base ${filter === cat ? 'bg-gradient-to-r from-[#FFD700] to-[#FFE44D]' : 'glass hover:bg-white/10'}`}>
                 {cat}
               </button>
             ))}
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
             {filteredProjects.map((project, idx) => (
               <div key={project.id} className={`glass rounded-2xl overflow-hidden hover-lift group reveal-scale delay-${(idx % 4) + 1}`}>
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-48 sm:h-64 overflow-hidden">
                   <img src={project.img} alt={project.title} className="w-full h-full object-cover transition-transform group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent"></div>
                 </div>
-                <div className="p-6">
+                <div className="p-4 sm:p-6">
                   <div className="flex gap-2 mb-3">
                     {project.tech.map(t => (
-                      <span key={t} className="px-3 py-1 bg-[#FFD700]/20 text-[#FFD700] rounded-full text-xs">{t}</span>
+                      <span key={t} className="px-2 sm:px-3 py-0.5 sm:py-1 bg-[#FFD700]/20 text-[#FFD700] rounded-full text-xs">{t}</span>
                     ))}
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                  <p className="text-gray-400 text-sm mb-4">{project.desc}</p>
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2">{project.title}</h3>
+                  <p className="text-gray-400 text-xs sm:text-sm mb-4">{project.desc}</p>
                   {project.demo !== '#' && <a href={project.demo} target="_blank" rel="noopener noreferrer" className="text-[#FFD700] hover:underline inline-flex items-center gap-1">Live Demo →</a>}
                 </div>
               </div>
@@ -299,31 +308,31 @@ function App() {
         </div>
       </section>
 
-      <section id="why-choose" className="py-24 px-6 scroll-mt-20 reveal-left">
+      <section id="why-choose" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20 reveal-left">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 reveal">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 reveal">
             Why <span className="gradient-text">Choose Us</span>
           </h2>
           
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-3 gap-2 sm:gap-8 mb-10 sm:mb-16">
             <div className="text-center reveal delay-1">
-              <div className="text-5xl font-bold gradient-text mb-2">{counters.projects}+</div>
+              <div className="text-4xl sm:text-5xl font-bold gradient-text mb-2">{counters.projects}+</div>
               <p className="text-gray-400">Projects Completed</p>
             </div>
             <div className="text-center reveal delay-2">
-              <div className="text-5xl font-bold gradient-text mb-2">{counters.clients}+</div>
+              <div className="text-4xl sm:text-5xl font-bold gradient-text mb-2">{counters.clients}+</div>
               <p className="text-gray-400">Happy Clients</p>
             </div>
             <div className="text-center reveal delay-3">
-              <div className="text-5xl font-bold gradient-text mb-2">{counters.years}+</div>
+              <div className="text-4xl sm:text-5xl font-bold gradient-text mb-2">{counters.years}+</div>
               <p className="text-gray-400">Years Experience</p>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal-scale">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 reveal-scale">
             {['Fast Delivery', 'Modern UI', 'Scalable Backend', 'Client Satisfaction'].map((item, idx) => (
-              <div key={idx} className={`glass rounded-xl p-6 text-center reveal delay-${idx + 1}`}>
-                <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-to-r from-[#FFD700] to-[#FFE44D] flex items-center justify-center text-2xl">✓</div>
+              <div key={idx} className={`glass rounded-xl p-4 sm:p-6 text-center reveal delay-${idx + 1}`}>
+                <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-4 rounded-full bg-gradient-to-r from-[#FFD700] to-[#FFE44D] flex items-center justify-center text-xl sm:text-2xl">✓</div>
                 <h3 className="font-semibold">{item}</h3>
               </div>
             ))}
@@ -331,16 +340,16 @@ function App() {
         </div>
       </section>
 
-      <section id="testimonials" className="py-24 px-6 bg-[#12121a] scroll-mt-20 reveal-right">
+      <section id="testimonials" className="py-16 sm:py-24 px-4 sm:px-6 bg-[#12121a] scroll-mt-20 reveal-right">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-4 reveal">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 reveal">
             Client <span className="gradient-text">Testimonials</span>
           </h2>
-          <p className="text-gray-400 text-center mb-16 reveal">What our clients say about us</p>
+          <p className="text-gray-400 text-center mb-10 sm:mb-16 reveal text-sm sm:text-base">What our clients say about us</p>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {testimonials.map((testimonial, idx) => (
-              <div key={idx} className={`glass rounded-2xl p-6 reveal delay-${idx + 1}`}>
+              <div key={idx} className={`glass rounded-2xl p-4 sm:p-6 reveal delay-${idx + 1}`}>
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <span key={i} className="text-yellow-400">★</span>
@@ -349,7 +358,7 @@ function App() {
                 <p className="text-gray-300 mb-4">"{testimonial.text}"</p>
                 <div>
                   <p className="font-semibold">{testimonial.name}</p>
-                  <p className="text-gray-500 text-sm">{testimonial.company}</p>
+                  <p className="text-gray-500 text-xs sm:text-sm">{testimonial.company}</p>
                 </div>
               </div>
             ))}
@@ -357,27 +366,27 @@ function App() {
         </div>
       </section>
 
-      <section id="pricing" className="py-24 px-6 scroll-mt-20 reveal">
+      <section id="pricing" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20 reveal">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-4 reveal">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 reveal">
             Simple <span className="gradient-text">Pricing</span>
           </h2>
-          <p className="text-gray-400 text-center mb-16 reveal">Choose the plan that fits your needs</p>
+          <p className="text-gray-400 text-center mb-10 sm:mb-16 reveal text-sm sm:text-base">Choose the plan that fits your needs</p>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {pricingPlans.map((plan, idx) => (
-              <div key={idx} className={`glass rounded-2xl p-8 relative reveal delay-${idx + 1} ${plan.popular ? 'gradient-border' : ''}`}>
-                {plan.popular && <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-[#FFD700] to-[#FFE44D] rounded-full text-xs font-semibold">Most Popular</span>}
-                <h3 className="text-xl font-semibold mb-2">{plan.name}</h3>
-                <p className="text-4xl font-bold gradient-text mb-6">{plan.price}</p>
-                <ul className="space-y-3 mb-8">
+              <div key={idx} className={`glass rounded-2xl p-6 sm:p-8 relative reveal delay-${idx + 1} ${plan.popular ? 'gradient-border' : ''}`}>
+                {plan.popular && <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 sm:px-4 py-1 bg-gradient-to-r from-[#FFD700] to-[#FFE44D] rounded-full text-xs font-semibold">Most Popular</span>}
+                <h3 className="text-lg sm:text-xl font-semibold mb-2">{plan.name}</h3>
+                <p className="text-3xl sm:text-4xl font-bold gradient-text mb-6">{plan.price}</p>
+                <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-center gap-2 text-gray-400">
                       <span className="text-[#FFD700]">✓</span> {feature}
                     </li>
                   ))}
                 </ul>
-                <a href="#contact" className={`block w-full py-3 rounded-full font-semibold text-center transition-all ${plan.popular ? 'bg-gradient-to-r from-[#FFD700] to-[#FFE44D] hover:scale-105' : 'glass hover:bg-white/10'}`}>
+                <a href="#contact" className={`block w-full py-2.5 sm:py-3 rounded-full font-semibold text-center transition-all text-sm sm:text-base ${plan.popular ? 'bg-gradient-to-r from-[#FFD700] to-[#FFE44D] hover:scale-105' : 'glass hover:bg-white/10'}`}>
                   Get Started
                 </a>
               </div>
@@ -386,19 +395,19 @@ function App() {
         </div>
       </section>
 
-      <section id="contact" className="py-24 px-6 bg-[#12121a] scroll-mt-20 reveal-left">
+      <section id="contact" className="py-16 sm:py-24 px-4 sm:px-6 bg-[#12121a] scroll-mt-20 reveal-left">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-4 reveal">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 reveal">
             Get In <span className="gradient-text">Touch</span>
           </h2>
-          <p className="text-gray-400 text-center mb-16 reveal">Let's build something amazing together</p>
+          <p className="text-gray-400 text-center mb-10 sm:mb-16 reveal text-sm sm:text-base">Let's build something amazing together</p>
 
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
             <div className="reveal-left">
               {formSent ? (
-                <div className="glass rounded-xl p-8 text-center">
-                  <div className="text-5xl mb-4">✓</div>
-                  <h3 className="text-xl font-semibold mb-2">Message Ready!</h3>
+                <div className="glass rounded-xl p-6 sm:p-8 text-center">
+                  <div className="text-4xl sm:text-5xl mb-4">✓</div>
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2">Message Ready!</h3>
                   <p className="text-gray-400">Your email app will open with the message. Just click send!</p>
                 </div>
               ) : (
@@ -415,17 +424,17 @@ function App() {
                 }}>
                   <div>
                     <label className="block text-sm text-gray-400 mb-2">Name</label>
-                    <input name="name" type="text" required className="w-full px-6 py-4 bg-[#0a0a0f] border border-[#1f1f2e] rounded-xl focus:border-[#FFD700] focus:outline-none transition-colors" placeholder="Your name" />
+                    <input name="name" type="text" required className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-[#0a0a0f] border border-[#1f1f2e] rounded-xl focus:border-[#FFD700] focus:outline-none transition-colors" placeholder="Your name" />
                   </div>
                   <div>
                     <label className="block text-sm text-gray-400 mb-2">Email</label>
-                    <input name="email" type="email" required className="w-full px-6 py-4 bg-[#0a0a0f] border border-[#1f1f2e] rounded-xl focus:border-[#FFD700] focus:outline-none transition-colors" placeholder="your@email.com" />
+                    <input name="email" type="email" required className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-[#0a0a0f] border border-[#1f1f2e] rounded-xl focus:border-[#FFD700] focus:outline-none transition-colors" placeholder="your@email.com" />
                   </div>
                   <div>
                     <label className="block text-sm text-gray-400 mb-2">Message</label>
-                    <textarea name="message" required className="w-full px-6 py-4 bg-[#0a0a0f] border border-[#1f1f2e] rounded-xl focus:border-[#FFD700] focus:outline-none transition-colors h-40 resize-none" placeholder="Tell us about your project..."></textarea>
+                    <textarea name="message" required className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-[#0a0a0f] border border-[#1f1f2e] rounded-xl focus:border-[#FFD700] focus:outline-none transition-colors h-32 sm:h-40 resize-none" placeholder="Tell us about your project..."></textarea>
                   </div>
-                  <button type="submit" className="w-full py-4 bg-gradient-to-r from-[#FFD700] to-[#FFE44D] rounded-xl font-semibold hover:scale-[1.02] transition-transform">
+                  <button type="submit" className="w-full py-3 sm:py-4 bg-gradient-to-r from-[#FFD700] to-[#FFE44D] rounded-xl font-semibold hover:scale-[1.02] transition-transform">
                     Send Message
                   </button>
                 </form>
@@ -433,16 +442,16 @@ function App() {
             </div>
             <div className="space-y-8 reveal-right">
               <div>
-                <h3 className="text-xl font-semibold mb-4">Contact Info</h3>
-                <div className="space-y-4 text-gray-400">
-                  <a href="mailto:vexorix.tech@gmail.com" className="hover:text-[#FFD700] transition-colors">📧 vexorix.tech@gmail.com</a>
-                  <p>📱 +91 9655058949</p>
-                  <p>📍 2/544 Anna Nagar, Chennai - 600002</p>
+                <h3 className="text-lg sm:text-xl font-semibold mb-4">Contact Info</h3>
+                <div className="space-y-3 sm:space-y-4 text-gray-400">
+                  <a href="mailto:vexorixtechnologies@gmail.com" className="hover:text-[#FFD700] transition-colors break-all">📧 vexorixtechnologies@gmail.com</a>
+                  <p>📱 <a href="tel:+919655058949" className="hover:text-[#FFD700] transition-colors">+91 9655058949</a></p>
+                  <p className="break-words">📍 Dharmapuri, Tamil Nadu 635202</p>
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-4">Services</h3>
-                <div className="space-y-3 text-gray-400">
+                <h3 className="text-lg sm:text-xl font-semibold mb-4">Services</h3>
+                <div className="space-y-2 sm:space-y-3 text-gray-400">
                   <p className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Websites</p>
                   <p className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Logo</p>
                   <p className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Posters</p>
@@ -455,13 +464,13 @@ function App() {
         </div>
       </section>
 
-       <footer className="py-12 px-6 border-t border-[#1f1f2e] reveal">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+       <footer className="py-8 sm:py-12 px-4 sm:px-6 border-t border-[#1f1f2e] reveal">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
           <div>
             <h2 className="text-xl md:text-2xl font-bold gradient-text">Vexorix.tech</h2>
             <p className="text-gray-500 text-sm mt-1">© 2026 Vexorix. All rights reserved.</p>
           </div>
-          <div className="flex gap-6">
+          <div className="flex gap-4 sm:gap-6">
             <a href="https://www.instagram.com/vexorix.io_?igsh=aHV4cWsxemdwNHMx" target="_blank" rel="noopener noreferrer" className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-[#FFD700]/20 transition-colors text-lg" aria-label="Instagram">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             </a>
@@ -478,12 +487,14 @@ function App() {
         </div>
       </footer>
 
-      <a href="https://wa.me/919655058949?text=Hello%20Vexorix.tech%20👋%0A%0AI%20saw%20your%20website%20and%20I'm%20interested%20in%20building%20a%20professional%20solution%20for%20my%20business.%0A%0APlease%20contact%20me%20regarding:%0A•%20Project%20discussion%0A•%20Website%20Development%0A•%20Posters%20%26%20Logo%0A•%20Demo%20availability.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" className="fixed bottom-6 left-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 transition-transform z-40" aria-label="WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M20.1 3.9C17.9 1.7 15 .5 12 .5 5.8.5.7 5.6.7 11.9c0 2 .5 3.9 1.5 5.6L.6 23.4l6-1.6c1.6.9 3.5 1.3 5.4 1.3 6.3 0 11.4-5.1 11.4-11.4-.1-2.8-1.2-5.7-3.3-7.7zM12 21.4c-1.7 0-3.3-.5-4.9-1.4l-.4-.2-3.5 1 1-3.4-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.7 0-5.8 4.7-10.5 10.5-10.5 2.8 0 5.4 1.1 7.4 3.1 2 2 3.1 4.6 3.1 7.4 0 5.8-4.7 10.5-10.5 10.5zM17.4 14.7c-.2-.1-1.2-.6-1.4-.7-.2-.1-.3-.1-.5.1-.1.2-.5.7-.7.8-.2.2-.4.2-.7.1-.3-.1-1.3-.4-2.5-1.3-.9-.7-1.5-1.6-1.6-1.9-.2-.3 0-.4.1-.5.1-.1.2-.3.4-.1.2-.3.3-.4.1-.1.2-.3.3-.4.1-.2.1-.3 0-.4-.1-.1-.5-1.2-.7-1.6 0-.9.5-2.1-.5-1.9-.5-.9 0-1.7.5-2.6 1-1 2.6-3.9 4.5-6.5 1.5-1.2 2.8-2.9 3-4.8.1-.5.1-1 .1-1.5v-.4c0-.2 0-.4.1-.6 0-.2.2-.4.3-.5.1-.1.1-.2.2-.3.3-.3.2-.1.5-.1h.3c.2 0 .4.1 .6.3.2.2.8.8 1.9 0 1.1.8 2.2 1 2.4.1.2 1.6 2.5 4 3.5 2.4 1 2.4.7 2.8.6 1.2 1 1.8 2.2 2 3.4.5 1.2.8 1.9 1.1 2.9.3 1.2.5 2.2.7 3.4.2 1.2.3 2.5.4 3.8l1.2 1.1z"/></svg>
-      </a>
-      <a href="tel:+919655058949" className="fixed bottom-6 right-6 w-14 h-14 bg-blue-500 rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 transition-transform z-40" aria-label="Call Us">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      </a>
+      <div className="fixed bottom-6 left-6 right-6 sm:right-auto flex justify-between sm:justify-start gap-4 z-40">
+        <a href="https://wa.me/919655058949?text=Hello%20Vexorix.tech%20👋%0A%0AI%20saw%20your%20website%20and%20I'm%20interested%20in%20building%20a%20professional%20solution%20for%20my%20business.%0A%0APlease%20contact%20me%20regarding:%0A•%20Project%20discussion%0A•%20Website%20Development%0A•%20Posters%20%26%20Logo%0A•%20Demo%20availability.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 transition-transform" aria-label="WhatsApp">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M20.1 3.9C17.9 1.7 15 .5 12 .5 5.8.5.7 5.6.7 11.9c0 2 .5 3.9 1.5 5.6L.6 23.4l6-1.6c1.6.9 3.5 1.3 5.4 1.3 6.3 0 11.4-5.1 11.4-11.4-.1-2.8-1.2-5.7-3.3-7.7zM12 21.4c-1.7 0-3.3-.5-4.9-1.4l-.4-.2-3.5 1 1-3.4-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.7 0-5.8 4.7-10.5 10.5-10.5 2.8 0 5.4 1.1 7.4 3.1 2 2 3.1 4.6 3.1 7.4 0 5.8-4.7 10.5-10.5 10.5zM17.4 14.7c-.2-.1-1.2-.6-1.4-.7-.2-.1-.3-.1-.5.1-.1.2-.5.7-.7.8-.2.2-.4.2-.7.1-.3-.1-1.3-.4-2.5-1.3-.9-.7-1.5-1.6-1.6-1.9-.2-.3 0-.4.1-.5.1-.1.2-.3.4-.1.2-.3.3-.4.1-.1.2-.3.3-.4.1-.2.1-.3 0-.4-.1-.1-.5-1.2-.7-1.6 0-.9.5-2.1-.5-1.9-.5-.9 0-1.7.5-2.6 1-1 2.6-3.9 4.5-6.5 1.5-1.2 2.8-2.9 3-4.8.1-.5.1-1 .1-1.5v-.4c0-.2 0-.4.1-.6 0-.2.2-.4.3-.5.1-.1.1-.2.2-.3.3-.3.2-.1.5-.1h.3c.2 0 .4.1 .6.3.2.2.8.8 1.9 0 1.1.8 2.2 1 2.4.1.2 1.6 2.5 4 3.5 2.4 1 2.4.7 2.8.6 1.2 1 1.8 2.2 2 3.4.5 1.2.8 1.9 1.1 2.9.3 1.2.5 2.2.7 3.4.2 1.2.3 2.5.4 3.8l1.2 1.1z"/></svg>
+        </a>
+        <a href="tel:+919655058949" className="w-14 h-14 bg-blue-500 rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 transition-transform" aria-label="Call Us">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
+      </div>
     </div>
   )
 }
