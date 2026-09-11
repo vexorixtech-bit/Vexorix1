@@ -115,16 +115,16 @@ function App() {
         <title>Vexorix | Web Developer & Digital Marketer Chennai</title>
         <meta name="description" content="Vexorix — Professional Web Development, Digital Marketing, Graphic Design, Poster Design & Ad Campaigns in Chennai, India." />
         <meta name="keywords" content="web developer Chennai, digital marketing Chennai, graphic design Chennai, freelance web developer Chennai" />
-        <link rel="canonical" href="https://vexorix-tech.vercel.app/" />
+        <link rel="canonical" href="https://vexorixtechnologies.in/" />
         <meta property="og:title" content="Vexorix | Web Developer & Digital Marketer Chennai" />
         <meta property="og:description" content="Vexorix — Professional Web Development, Digital Marketing, Graphic Design, Poster Design & Ad Campaigns in Chennai, India." />
-        <meta property="og:image" content="https://vexorix-tech.vercel.app/vexorix.tech.png" />
-        <meta property="og:url" content="https://vexorix-tech.vercel.app/" />
+        <meta property="og:image" content="https://vexorixtechnologies.in/vexorix.tech.png" />
+        <meta property="og:url" content="https://vexorixtechnologies.in/" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Vexorix | Web Developer & Digital Marketer Chennai" />
         <meta name="twitter:description" content="Vexorix — Professional Web Development, Digital Marketing, Graphic Design, Poster Design & Ad Campaigns in Chennai, India." />
-        <meta name="twitter:image" content="https://vexorix-tech.vercel.app/vexorix.tech.png" />
+        <meta name="twitter:image" content="https://vexorixtechnologies.in/vexorix.tech.png" />
       </Helmet>
       <div className="fixed top-0 left-0 h-1 bg-gradient-to-r from-[#FFD700] to-[#FFE44D] z-50 transition-all duration-150" style={{ width: `${scrollProgress}%` }}></div>
 
@@ -452,11 +452,11 @@ function App() {
               <div>
                 <h3 className="text-lg sm:text-xl font-semibold mb-4">Services</h3>
                 <div className="space-y-2 sm:space-y-3 text-gray-400">
-                  <p className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Websites</p>
-                  <p className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Logo</p>
-                  <p className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Posters</p>
-                  <p className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Meta ad</p>
-                  <p className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> SEO</p>
+                  <p className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Web Development</p>
+                  <p className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Mobile App Development</p>
+                  <p className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> E-Commerce Solutions</p>
+                  <p className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Backend & API Development</p>
+                  <p className="flex items-center gap-2"><span className="text-[#FFD700]">✓</span> Digital Marketing</p>
                 </div>
               </div>
             </div>
@@ -467,7 +467,7 @@ function App() {
        <footer className="py-8 sm:py-12 px-4 sm:px-6 border-t border-[#1f1f2e] reveal">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
           <div>
-            <h2 className="text-xl md:text-2xl font-bold gradient-text">Vexorix.tech</h2>
+            <h2 className="text-xl md:text-2xl font-bold gradient-text">Vexorix Technologies</h2>
             <p className="text-gray-500 text-sm mt-1">© 2026 Vexorix. All rights reserved.</p>
           </div>
           <div className="flex gap-4 sm:gap-6">
