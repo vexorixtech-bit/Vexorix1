@@ -26,12 +26,6 @@ const testimonials = [
   { name: 'Emily Davis', company: 'HealthFirst', text: 'The hospital management system transformed our operations. Best investment we made.', rating: 5 },
 ]
 
-const pricingPlans = [
-  { name: 'Basic', price: '₹4,999 / $69', features: ['Single Page Website', 'Responsive Design', 'Contact Form', 'Social Links', '2 Revisions'], popular: false },
-  { name: 'Standard', price: '₹9,999 / $129', features: ['Multi-Page Website (5-8 pages)', 'CMS Integration', 'SEO Optimization', 'Contact Form + WhatsApp Button', 'Google Maps Integration', 'Analytics Setup', '4 Revisions'], popular: true },
-  { name: 'Premium', price: '₹24,999 / $299', features: ['Full Custom Website (10+ Pages)', 'E-commerce / Booking System', 'API Development', 'Database Setup', 'Priority Support', 'Unlimited Revisions', '1 Month Free Maintenance'], popular: false },
-]
-
 function App() {
   const [filter, setFilter] = useState('All')
   const [scrollProgress, setScrollProgress] = useState(0)
@@ -51,7 +45,7 @@ function App() {
             setScrollProgress((scroll / docHeight) * 100)
           }
 
-          const sectionIds = ['home', 'about', 'services', 'portfolio', 'why-choose', 'testimonials', 'pricing', 'contact']
+          const sectionIds = ['home', 'about', 'services', 'portfolio', 'why-choose', 'testimonials', 'contact']
           let currentSection = 'home'
 
           for (const id of sectionIds) {
@@ -141,7 +135,6 @@ function App() {
             <a href="#portfolio" className={`transition-colors text-sm lg:text-base ${activeSection === 'portfolio' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Portfolio</a>
             <a href="#why-choose" className={`transition-colors text-sm lg:text-base ${activeSection === 'why-choose' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Why Us</a>
             <a href="#testimonials" className={`transition-colors text-sm lg:text-base ${activeSection === 'testimonials' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Testimonials</a>
-            <a href="#pricing" className={`transition-colors text-sm lg:text-base ${activeSection === 'pricing' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Pricing</a>
             <a href="#contact" className={`transition-colors text-sm lg:text-base ${activeSection === 'contact' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Contact</a>
           </div>
           <button 
@@ -161,7 +154,6 @@ function App() {
               <a href="#portfolio" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'portfolio' ? 'text-[#FFD700]' : 'text-gray-300'}`}>Portfolio</a>
               <a href="#why-choose" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'why-choose' ? 'text-[#FFD700]' : 'text-gray-300'}`}>Why Us</a>
               <a href="#testimonials" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'testimonials' ? 'text-[#FFD700]' : 'text-gray-300'}`}>Testimonials</a>
-              <a href="#pricing" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'pricing' ? 'text-[#FFD700]' : 'text-gray-300'}`}>Pricing</a>
               <a href="#contact" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'contact' ? 'text-[#FFD700]' : 'text-gray-300'}`}>Contact</a>
             </div>
           </div>
@@ -360,35 +352,6 @@ function App() {
                   <p className="font-semibold">{testimonial.name}</p>
                   <p className="text-gray-500 text-xs sm:text-sm">{testimonial.company}</p>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="pricing" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20 reveal">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 reveal">
-            Simple <span className="gradient-text">Pricing</span>
-          </h2>
-          <p className="text-gray-400 text-center mb-10 sm:mb-16 reveal text-sm sm:text-base">Choose the plan that fits your needs</p>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {pricingPlans.map((plan, idx) => (
-              <div key={idx} className={`glass rounded-2xl p-6 sm:p-8 relative reveal delay-${idx + 1} ${plan.popular ? 'gradient-border' : ''}`}>
-                {plan.popular && <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 sm:px-4 py-1 bg-gradient-to-r from-[#FFD700] to-[#FFE44D] rounded-full text-xs font-semibold">Most Popular</span>}
-                <h3 className="text-lg sm:text-xl font-semibold mb-2">{plan.name}</h3>
-                <p className="text-3xl sm:text-4xl font-bold gradient-text mb-6">{plan.price}</p>
-                <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-2 text-gray-400">
-                      <span className="text-[#FFD700]">✓</span> {feature}
-                    </li>
-                  ))}
-                </ul>
-                <a href="#contact" className={`block w-full py-2.5 sm:py-3 rounded-full font-semibold text-center transition-all text-sm sm:text-base ${plan.popular ? 'bg-gradient-to-r from-[#FFD700] to-[#FFE44D] hover:scale-105' : 'glass hover:bg-white/10'}`}>
-                  Get Started
-                </a>
               </div>
             ))}
           </div>
