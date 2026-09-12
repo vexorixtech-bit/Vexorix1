@@ -30,9 +30,7 @@ function App() {
   const [filter, setFilter] = useState('All')
   const [scrollProgress, setScrollProgress] = useState(0)
   const [counters, setCounters] = useState({ projects: 0, clients: 0, years: 0 })
-  const [activeSection, setActiveSection] = useState('home')
   const [formSent, setFormSent] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     let ticking = false
@@ -44,22 +42,6 @@ function App() {
           if (docHeight > 0) {
             setScrollProgress((scroll / docHeight) * 100)
           }
-
-          const sectionIds = ['home', 'about', 'services', 'portfolio', 'why-choose', 'testimonials', 'contact']
-          let currentSection = 'home'
-
-          for (const id of sectionIds) {
-            const el = document.getElementById(id)
-            if (el) {
-              const rect = el.getBoundingClientRect()
-              const offset = window.scrollY + rect.top
-              if (scroll >= offset - 200) {
-                currentSection = id
-              }
-            }
-          }
-
-          setActiveSection(currentSection)
           ticking = false
         })
         ticking = true
@@ -121,44 +103,6 @@ function App() {
         <meta name="twitter:image" content="https://vexorixtechnologies.in/vexorix.tech.png" />
       </Helmet>
       <div className="fixed top-0 left-0 h-1 bg-gradient-to-r from-[#FFD700] to-[#FFE44D] z-50 transition-all duration-150" style={{ width: `${scrollProgress}%` }}></div>
-
-      <nav className="fixed top-0 left-0 right-0 z-40 glass">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
-          <a href="#home" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <img src="/vexorix.tech.png" alt="Vexorix Logo" className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-            <h1 className="text-base sm:text-lg md:text-2xl lg:text-3xl font-bold gradient-text" style={{fontFamily: "'Playfair Display', serif", letterSpacing: '0.05em'}}>Vexorix.tech</h1>
-          </a>
-          <div className="hidden md:flex items-center gap-6 lg:gap-8">
-            <a href="#home" className={`transition-colors text-sm lg:text-base ${activeSection === 'home' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Home</a>
-            <a href="#about" className={`transition-colors text-sm lg:text-base ${activeSection === 'about' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>About</a>
-            <a href="#services" className={`transition-colors text-sm lg:text-base ${activeSection === 'services' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Services</a>
-            <a href="#portfolio" className={`transition-colors text-sm lg:text-base ${activeSection === 'portfolio' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Portfolio</a>
-            <a href="#why-choose" className={`transition-colors text-sm lg:text-base ${activeSection === 'why-choose' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Why Us</a>
-            <a href="#testimonials" className={`transition-colors text-sm lg:text-base ${activeSection === 'testimonials' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Testimonials</a>
-            <a href="#contact" className={`transition-colors text-sm lg:text-base ${activeSection === 'contact' ? 'text-[#FFD700]' : 'text-gray-300 hover:text-[#FFD700]'}`}>Contact</a>
-          </div>
-          <button 
-            className="md:hidden w-9 h-9 sm:w-10 sm:h-10 glass rounded-full flex items-center justify-center text-lg sm:text-xl"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? '✕' : '☰'}
-          </button>
-        </div>
-        
-        {mobileMenuOpen && (
-          <div className="md:hidden glass border-t border-[#1f1f2e] px-6 py-4">
-            <div className="flex flex-col gap-3 sm:gap-4">
-              <a href="#home" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'home' ? 'text-[#FFD700]' : 'text-gray-300'}`}>Home</a>
-              <a href="#about" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'about' ? 'text-[#FFD700]' : 'text-gray-300'}`}>About</a>
-              <a href="#services" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'services' ? 'text-[#FFD700]' : 'text-gray-300'}`}>Services</a>
-              <a href="#portfolio" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'portfolio' ? 'text-[#FFD700]' : 'text-gray-300'}`}>Portfolio</a>
-              <a href="#why-choose" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'why-choose' ? 'text-[#FFD700]' : 'text-gray-300'}`}>Why Us</a>
-              <a href="#testimonials" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'testimonials' ? 'text-[#FFD700]' : 'text-gray-300'}`}>Testimonials</a>
-              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className={`transition-colors ${activeSection === 'contact' ? 'text-[#FFD700]' : 'text-gray-300'}`}>Contact</a>
-            </div>
-          </div>
-        )}
-      </nav>
 
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 sm:pt-20 fade-in">
         <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/10 via-transparent to-[#FFE44D]/10"></div>
