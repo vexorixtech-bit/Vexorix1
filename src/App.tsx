@@ -88,7 +88,7 @@ function App() {
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
       <Helmet>
-        <title>Vexorix | Web Developer & Digital Marketer Chennai</title>
+        <title>Vexorix Technologies</title>
         <meta name="description" content="Vexorix — Professional Web Development, Digital Marketing, Graphic Design, Poster Design & Ad Campaigns in Chennai, India." />
         <meta name="keywords" content="web developer Chennai, digital marketing Chennai, graphic design Chennai, freelance web developer Chennai" />
         <link rel="canonical" href="https://vexorixtechnologies.in/" />
