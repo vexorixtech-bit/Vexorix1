@@ -1,0 +1,35 @@
+.dock-container {
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+}
+
+.dock-icon {
+  transition: filter 0.2s ease;
+}
+
+.dock-icon:hover {
+  filter: brightness(1.15);
+}
+
+.dock-tooltip {
+  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.12);
+}
+
+@media (max-width: 640px) {
+  .dock-container {
+    left: 50%;
+    right: auto;
+    bottom: 10px;
+    transform: translateX(-50%);
+    max-width: 96vw;
+    overflow-x: auto;
+    overflow-y: visible;
+    scrollbar-width: none;
+    width: fit-content;
+  }
+
+  .dock-container::-webkit-scrollbar {
+    display: none;
+  }
+}

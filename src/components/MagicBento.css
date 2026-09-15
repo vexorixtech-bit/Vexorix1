@@ -1,0 +1,115 @@
+.bento-card {
+  position: relative;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 215, 0, 0.08);
+  background: linear-gradient(160deg, rgba(20, 18, 8, 0.8), rgba(10, 10, 10, 0.9));
+  background-clip: padding-box;
+  overflow: hidden;
+  box-shadow: 0 20px 50px -24px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  will-change: transform;
+}
+
+.bento-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    130deg,
+    rgba(255, 215, 0, 0.6),
+    rgba(255, 228, 77, 0.45),
+    rgba(255, 215, 0, 0.6)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.bento-card:hover::after,
+.bento-card:focus-within::after {
+  opacity: 1;
+}
+
+.bento-spotlight {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    600px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgba(255, 215, 0, 0.12),
+    rgba(255, 228, 77, 0.05) 40%,
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bento-card:hover .bento-spotlight {
+  opacity: 1;
+}
+
+.bento-content {
+  position: relative;
+  z-index: 2;
+}
+
+.star-dot {
+  position: absolute;
+  border-radius: 9999px;
+  background: #ffffff;
+  box-shadow: 0 0 6px rgba(255, 215, 0, 0.9);
+  animation: bento-twinkle ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes bento-twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.ripple {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.5), rgba(255, 228, 77, 0.25));
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 1;
+  animation: bento-ripple 0.65s ease-out forwards;
+  pointer-events: none;
+  z-index: 3;
+}
+
+@keyframes bento-ripple {
+  to {
+    transform: translate(-50%, -50%) scale(34);
+    opacity: 0;
+  }
+}
+
+.code-window {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  background: rgba(4, 4, 2, 0.85);
+  box-shadow: 0 10px 40px -12px rgba(255, 215, 0, 0.2);
+}
+
+@media (max-width: 767px) {
+  .bento-card {
+    border-radius: 1.25rem;
+  }
+}

@@ -9,14 +9,9 @@
   --color-dark-border: #1a1a1a;
 }
 
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-gold) var(--color-dark-bg);
-}
-
 html {
   scroll-behavior: auto;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -27,7 +22,7 @@ body {
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
   position: relative;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body::before {
@@ -47,8 +42,35 @@ body::before {
 #root {
   position: relative;
   z-index: 1;
-  overflow-x: hidden;
   width: 100%;
+}
+
+::selection {
+  background: rgba(255, 215, 0, 0.3);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-light);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gold) var(--color-dark-bg);
 }
 
 .glass {
