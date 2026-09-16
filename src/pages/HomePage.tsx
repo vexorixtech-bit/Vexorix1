@@ -154,7 +154,7 @@ function HomePage() {
 
         <div className="relative z-10 text-center px-6 animate-slide-up">
 <div className="-mb-1 inline-block">
-            <img src="/vexorix.tech.png" alt="Vexorix Logo" className="w-32 h-32 sm:w-44 sm:h-44 md:w-72 md:h-72 mx-auto object-contain drop-shadow-[0_0_40px_rgba(255,215,0,0.5)] sm:animate-float" style={{backgroundColor: 'transparent'}} />
+            <img src="/vexorix.tech.png" alt="Vexorix Logo" className="w-52 sm:w-56 sm:h-56 md:w-72 md:h-72 mx-auto object-contain drop-shadow-[0_0_40px_rgba(255,215,0,0.5)] sm:animate-float" style={{backgroundColor: 'transparent'}} />
           </div>
           <p className="flex w-fit mx-auto items-center gap-1.5 text-xs sm:text-sm font-sans tracking-[0.15em] text-[#FFD700] bg-[#FFD700]/10 border border-[#FFD700]/25 rounded-full px-5 py-1.5 mb-3">
             <Sparkles size={13} className="text-[#FFD700] shrink-0" />
