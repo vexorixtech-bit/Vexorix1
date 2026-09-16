@@ -86,6 +86,7 @@ const stackIcons: Record<string, { icon: IconType; color: string }> = {
 function HomePage() {
   const [counts, setCounts] = useState(stats.map(() => 0))
   const [showAllProjects, setShowAllProjects] = useState(false)
+  const [activePhase, setActivePhase] = useState(-1)
   const statsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -311,16 +312,18 @@ function HomePage() {
             ].map((phase, idx) => (
               <div
                 key={phase.num}
-                className={`group/card relative flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-7 min-h-[25rem] sm:min-h-[30rem] transition-all duration-300 hover:border-[#FFD700]/40 hover:bg-white/[0.05] hover:shadow-[0_20px_50px_-15px_rgba(255,215,0,0.25)] reveal delay-${idx + 1}`}
+                onClick={() => setActivePhase(idx === activePhase ? -1 : idx)}
+                className={`group/card relative flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-7 min-h-[25rem] sm:min-h-[30rem] transition-all duration-300 hover:border-[#FFD700]/40 hover:bg-white/[0.05] hover:shadow-[0_20px_50px_-15px_rgba(255,215,0,0.25)] reveal delay-${idx + 1} ${activePhase === idx ? 'md:hover:border-[#FFD700]/40' : ''}`}
               >
                 <div className="relative flex-1 overflow-hidden">
-                  <div className="hidden md:flex absolute inset-0 flex-col items-center justify-center text-center transition-opacity duration-300 group-hover/card:opacity-0">
+                  <div className={`hidden md:flex absolute inset-0 flex-col items-center justify-center text-center transition-opacity duration-300 group-hover/card:opacity-0 ${activePhase === idx ? 'md:hidden' : ''}`}>
                     <span className="text-sm font-bold uppercase tracking-[0.4em] text-[#FFD700]/70">Phase</span>
                     <div className="text-8xl sm:text-9xl font-bold leading-none text-white/10 mt-2 transition-colors duration-300 group-hover/card:text-[#FFD700]/25">
                       {phase.num}
                     </div>
                   </div>
-                  <div className="flex flex-col items-center justify-center min-h-full py-2 text-center opacity-100 md:opacity-0 transition-opacity duration-300 md:group-hover/card:opacity-100">
+                  <div className={`flex flex-col items-center justify-center min-h-full py-2 text-center transition-opacity duration-300 md:opacity-0 md:group-hover/card:opacity-100 ${activePhase === idx ? 'opacity-100' : 'md:opacity-0'}`}>
+                    <span className="md:hidden text-sm font-bold uppercase tracking-[0.4em] text-[#FFD700]/70 mb-4 lg:hidden">Phase {phase.num}</span>
                     <h3 className="font-bold text-xl sm:text-2xl mb-3">{phase.title}</h3>
                     <p className="text-gray-400 text-sm sm:text-base leading-relaxed">{phase.desc}</p>
                   </div>
