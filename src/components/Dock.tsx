@@ -64,7 +64,11 @@ function DockIcon({
         }}
         onClick={() => {
           if (item.href) {
-            window.open(item.href, '_blank', 'noopener,noreferrer')
+            if (item.href.startsWith('tel:') || item.href.startsWith('mailto:')) {
+              window.location.href = item.href
+            } else {
+              window.open(item.href, '_blank', 'noopener,noreferrer')
+            }
           } else if (item.id) {
             onNavigate(item.id)
           }
