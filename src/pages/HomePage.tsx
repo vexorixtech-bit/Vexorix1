@@ -86,7 +86,7 @@ const stackIcons: Record<string, { icon: IconType; color: string }> = {
 function HomePage() {
   const [counts, setCounts] = useState(stats.map(() => 0))
   const [showAllProjects, setShowAllProjects] = useState(false)
-  const [activePhase, setActivePhase] = useState(-1)
+  const [activePhases, setActivePhases] = useState<number[]>([])
   const statsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -145,7 +145,7 @@ function HomePage() {
         <meta property="og:url" content="https://vexorixtechnologies.in/" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Vexorix | Web Developer & Digital Marketer Chennai" />
+        <meta name="twitter:title" content="Vexorix | Full Stack Developer " />
         <meta name="twitter:description" content="Vexorix — Professional Web Development, Full Stack application, App Developnment ,Digital Marketing, UI & UX Design in Dharmapuri , India." />
         <meta name="twitter:image" content="https://vexorixtechnologies.in/vexorix.tech.png" />
       </Helmet>
@@ -312,8 +312,8 @@ function HomePage() {
             ].map((phase, idx) => (
               <div
                 key={phase.num}
-                onClick={() => setActivePhase(idx)}
-                className={`group/card relative flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-7 min-h-[25rem] sm:min-h-[30rem] transition-all duration-300 hover:border-[#FFD700]/40 hover:bg-white/[0.05] hover:shadow-[0_20px_50px_-15px_rgba(255,215,0,0.25)] reveal delay-${idx + 1} ${activePhase === idx ? 'md:hover:border-[#FFD700]/40' : ''}`}
+                onClick={() => setActivePhases((prev) => prev.includes(idx) ? prev : [...prev, idx])}
+                className={`group/card relative flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-7 min-h-[25rem] sm:min-h-[30rem] transition-all duration-300 hover:border-[#FFD700]/40 hover:bg-white/[0.05] hover:shadow-[0_20px_50px_-15px_rgba(255,215,0,0.25)] reveal delay-${idx + 1} ${activePhases.includes(idx) ? 'md:hover:border-[#FFD700]/40' : ''}`}
               >
                 <div className="relative flex-1 overflow-hidden">
                   <div className="flex flex-col items-center justify-center text-center">
@@ -321,7 +321,7 @@ function HomePage() {
                     <div className={`text-7xl sm:text-8xl font-bold leading-none text-white/60 mt-1 mb-6 transition-colors duration-300 md:group-hover/card:text-[#FFD700]/25`}>
                       {phase.num}
                     </div>
-                    <div className={`flex flex-col items-center justify-center min-h-full py-2 text-center transition-opacity duration-300 md:group-hover/card:opacity-100 ${activePhase === idx ? 'opacity-100' : 'opacity-0 md:opacity-0'}`}>
+                    <div className={`flex flex-col items-center justify-center min-h-full py-2 text-center transition-opacity duration-300 md:group-hover/card:opacity-100 ${activePhases.includes(idx) ? 'opacity-100' : 'opacity-0 md:opacity-0'}`}>
                       <h3 className="font-bold text-xl sm:text-2xl mb-3">{phase.title}</h3>
                       <p className="text-gray-400 text-sm sm:text-base leading-relaxed">{phase.desc}</p>
                     </div>
