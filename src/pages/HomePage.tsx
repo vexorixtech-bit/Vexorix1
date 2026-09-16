@@ -145,7 +145,7 @@ function HomePage() {
         <meta property="og:url" content="https://vexorixtechnologies.in/" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Vexorix | Full Stack Developer " />
+        <meta name="twitter:title" content="Vexorix Technologies" />
         <meta name="twitter:description" content="Vexorix — Professional Web Development, Full Stack application, App Developnment ,Digital Marketing, UI & UX Design in Dharmapuri , India." />
         <meta name="twitter:image" content="https://vexorixtechnologies.in/vexorix.tech.png" />
       </Helmet>
