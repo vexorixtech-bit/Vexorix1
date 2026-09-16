@@ -316,16 +316,15 @@ function HomePage() {
                 className={`group/card relative flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-7 min-h-[25rem] sm:min-h-[30rem] transition-all duration-300 hover:border-[#FFD700]/40 hover:bg-white/[0.05] hover:shadow-[0_20px_50px_-15px_rgba(255,215,0,0.25)] reveal delay-${idx + 1} ${activePhase === idx ? 'md:hover:border-[#FFD700]/40' : ''}`}
               >
                 <div className="relative flex-1 overflow-hidden">
-                  <div className={`absolute inset-0 flex flex-col items-center justify-center text-center transition-opacity duration-300 md:group-hover/card:opacity-0 ${activePhase === idx ? 'opacity-0' : 'opacity-100'}`}>
+                  <div className="flex flex-col items-center justify-center text-center">
                     <span className="text-sm font-bold uppercase tracking-[0.4em] text-[#FFD700]/70">Phase</span>
-                    <div className="text-8xl sm:text-9xl font-bold leading-none text-white/10 mt-2 transition-colors duration-300 group-hover/card:text-[#FFD700]/25">
+                    <div className={`text-7xl sm:text-8xl font-bold leading-none text-white/10 mt-1 mb-6 transition-all duration-300 ${activePhase === idx ? 'md:group-hover/card:text-[#FFD700]/25' : ''}`}>
                       {phase.num}
                     </div>
-                  </div>
-                  <div className={`flex flex-col items-center justify-center min-h-full py-2 text-center transition-opacity duration-300 md:group-hover/card:opacity-100 ${activePhase === idx ? 'opacity-100' : 'opacity-0 md:opacity-0'}`}>
-                    <span className="md:hidden text-sm font-bold uppercase tracking-[0.4em] text-[#FFD700]/70 mb-4">Phase {phase.num}</span>
-                    <h3 className="font-bold text-xl sm:text-2xl mb-3">{phase.title}</h3>
-                    <p className="text-gray-400 text-sm sm:text-base leading-relaxed">{phase.desc}</p>
+                    <div className={`flex flex-col items-center justify-center min-h-full py-2 text-center transition-opacity duration-300 md:group-hover/card:opacity-100 ${activePhase === idx ? 'opacity-100' : 'opacity-0 md:opacity-0'}`}>
+                      <h3 className="font-bold text-xl sm:text-2xl mb-3">{phase.title}</h3>
+                      <p className="text-gray-400 text-sm sm:text-base leading-relaxed">{phase.desc}</p>
+                    </div>
                   </div>
                 </div>
               </div>
