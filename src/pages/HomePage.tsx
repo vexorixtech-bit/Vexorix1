@@ -136,17 +136,17 @@ function HomePage() {
       <div className="absolute bottom-1/4 right-1/4 w-32 sm:w-64 h-32 sm:h-64 bg-[#FFE44D]/20 rounded-full blur-3xl animate-pulse-glow pointer-events-none" aria-hidden="true" style={{ animationDelay: '1.5s' }}></div>
       <Helmet>
         <title>Vexorix Technologies</title>
-        <meta name="description" content="Vexorix — Professional Web Development, Digital Marketing, Graphic Design, Poster Design & Ad Campaigns in Chennai, India." />
+        <meta name="description" content="Vexorix — Professional Web Development, Full Stack application, App Developnment ,Digital Marketing, UI & UX Design in Dharmapuri , India." />
         <meta name="keywords" content="web developer Chennai, digital marketing Chennai, graphic design Chennai, freelance web developer Chennai" />
         <link rel="canonical" href="https://vexorixtechnologies.in/" />
-        <meta property="og:title" content="Vexorix | Web Developer & Digital Marketer Chennai" />
-        <meta property="og:description" content="Vexorix — Professional Web Development, Digital Marketing, Graphic Design, Poster Design & Ad Campaigns in Chennai, India." />
+        <meta property="og:title" content="Vexorix Technologies" />
+        <meta property="og:description" content="Vexorix — Professional Web Development, Full Stack application, App Developnment ,Digital Marketing, UI & UX Design in Dharmapuri , India." />
         <meta property="og:image" content="https://vexorixtechnologies.in/vexorix.tech.png" />
         <meta property="og:url" content="https://vexorixtechnologies.in/" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Vexorix | Web Developer & Digital Marketer Chennai" />
-        <meta name="twitter:description" content="Vexorix — Professional Web Development, Digital Marketing, Graphic Design, Poster Design & Ad Campaigns in Chennai, India." />
+        <meta name="twitter:description" content="Vexorix — Professional Web Development, Full Stack application, App Developnment ,Digital Marketing, UI & UX Design in Dharmapuri , India." />
         <meta name="twitter:image" content="https://vexorixtechnologies.in/vexorix.tech.png" />
       </Helmet>
 
@@ -316,14 +316,14 @@ function HomePage() {
                 className={`group/card relative flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-7 min-h-[25rem] sm:min-h-[30rem] transition-all duration-300 hover:border-[#FFD700]/40 hover:bg-white/[0.05] hover:shadow-[0_20px_50px_-15px_rgba(255,215,0,0.25)] reveal delay-${idx + 1} ${activePhase === idx ? 'md:hover:border-[#FFD700]/40' : ''}`}
               >
                 <div className="relative flex-1 overflow-hidden">
-                  <div className={`hidden md:flex absolute inset-0 flex-col items-center justify-center text-center transition-opacity duration-300 group-hover/card:opacity-0 ${activePhase === idx ? 'md:hidden' : ''}`}>
+                  <div className={`absolute inset-0 flex flex-col items-center justify-center text-center transition-opacity duration-300 md:group-hover/card:opacity-0 ${activePhase === idx ? 'opacity-0' : 'opacity-100'}`}>
                     <span className="text-sm font-bold uppercase tracking-[0.4em] text-[#FFD700]/70">Phase</span>
                     <div className="text-8xl sm:text-9xl font-bold leading-none text-white/10 mt-2 transition-colors duration-300 group-hover/card:text-[#FFD700]/25">
                       {phase.num}
                     </div>
                   </div>
-                  <div className={`flex flex-col items-center justify-center min-h-full py-2 text-center transition-opacity duration-300 md:opacity-0 md:group-hover/card:opacity-100 ${activePhase === idx ? 'opacity-100' : 'md:opacity-0'}`}>
-                    <span className="md:hidden text-sm font-bold uppercase tracking-[0.4em] text-[#FFD700]/70 mb-4 lg:hidden">Phase {phase.num}</span>
+                  <div className={`flex flex-col items-center justify-center min-h-full py-2 text-center transition-opacity duration-300 md:group-hover/card:opacity-100 ${activePhase === idx ? 'opacity-100' : 'opacity-0 md:opacity-0'}`}>
+                    <span className="md:hidden text-sm font-bold uppercase tracking-[0.4em] text-[#FFD700]/70 mb-4">Phase {phase.num}</span>
                     <h3 className="font-bold text-xl sm:text-2xl mb-3">{phase.title}</h3>
                     <p className="text-gray-400 text-sm sm:text-base leading-relaxed">{phase.desc}</p>
                   </div>
