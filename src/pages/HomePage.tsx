@@ -318,7 +318,7 @@ function HomePage() {
                 <div className="relative flex-1 overflow-hidden">
                   <div className="flex flex-col items-center justify-center text-center">
                     <span className="text-sm font-bold uppercase tracking-[0.4em] text-[#FFD700]/70">Phase</span>
-                    <div className={`text-7xl sm:text-8xl font-bold leading-none text-white/10 mt-1 mb-6 transition-all duration-300 ${activePhase === idx ? 'md:group-hover/card:text-[#FFD700]/25' : ''}`}>
+                    <div className={`text-7xl sm:text-8xl font-bold leading-none text-white/60 mt-1 mb-6 transition-colors duration-300 md:group-hover/card:text-[#FFD700]/25`}>
                       {phase.num}
                     </div>
                     <div className={`flex flex-col items-center justify-center min-h-full py-2 text-center transition-opacity duration-300 md:group-hover/card:opacity-100 ${activePhase === idx ? 'opacity-100' : 'opacity-0 md:opacity-0'}`}>
