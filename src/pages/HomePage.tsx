@@ -312,7 +312,7 @@ function HomePage() {
             ].map((phase, idx) => (
               <div
                 key={phase.num}
-                onClick={() => setActivePhase(idx === activePhase ? -1 : idx)}
+                onClick={() => setActivePhase(idx)}
                 className={`group/card relative flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-7 min-h-[25rem] sm:min-h-[30rem] transition-all duration-300 hover:border-[#FFD700]/40 hover:bg-white/[0.05] hover:shadow-[0_20px_50px_-15px_rgba(255,215,0,0.25)] reveal delay-${idx + 1} ${activePhase === idx ? 'md:hover:border-[#FFD700]/40' : ''}`}
               >
                 <div className="relative flex-1 overflow-hidden">
