@@ -138,16 +138,16 @@ function HomePage() {
         <title>Vexorix Technologies</title>
         <meta name="description" content="Vexorix — Professional Web Development, Full Stack application, App Developnment ,Digital Marketing, UI & UX Design in Dharmapuri , India." />
         <meta name="keywords" content="web developer Chennai, digital marketing Chennai, graphic design Chennai, freelance web developer Chennai" />
-        <link rel="canonical" href="https://vexorixtechnologies.in/" />
+        <link rel="canonical" href="https://www.vexorixtechnologies.in/" />
         <meta property="og:title" content="Vexorix Technologies" />
         <meta property="og:description" content="Vexorix — Professional Web Development, Full Stack application, App Developnment ,Digital Marketing, UI & UX Design in Dharmapuri , India." />
-        <meta property="og:image" content="https://vexorixtechnologies.in/vexorix.tech.png" />
-        <meta property="og:url" content="https://vexorixtechnologies.in/" />
+        <meta property="og:image" content="https://www.vexorixtechnologies.in/vexorix.tech.png" />
+        <meta property="og:url" content="https://www.vexorixtechnologies.in/" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Vexorix Technologies" />
         <meta name="twitter:description" content="Vexorix — Professional Web Development, Full Stack application, App Developnment ,Digital Marketing, UI & UX Design in Dharmapuri , India." />
-        <meta name="twitter:image" content="https://vexorixtechnologies.in/vexorix.tech.png" />
+        <meta name="twitter:image" content="https://www.vexorixtechnologies.in/vexorix.tech.png" />
       </Helmet>
 
       <section id="home" className="min-h-[50vh] flex flex-col items-center relative pt-0 sm:pt-0 pb-10 sm:pb-14 fade-in">

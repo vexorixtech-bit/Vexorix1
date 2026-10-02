@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://vexorixtechnologies.in/sitemap.xml
+Sitemap: https://www.vexorixtechnologies.in/sitemap.xml

@@ -83,7 +83,7 @@ function ServiceDetail({ service }: { service: Service }) {
       <Helmet>
         <title>{service.title} | Vexorix Technologies</title>
         <meta name="description" content={`${service.title} by Vexorix — ${service.desc}`} />
-        <link rel="canonical" href={`https://vexorixtechnologies.in${service.path}`} />
+        <link rel="canonical" href={`https://www.vexorixtechnologies.in${service.path}`} />
       </Helmet>
 
       <header className="sticky top-0 z-40 border-b border-white/10 bg-[#0a0a0f]/85 backdrop-blur-xl">

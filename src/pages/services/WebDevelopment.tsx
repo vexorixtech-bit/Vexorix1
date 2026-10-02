@@ -332,7 +332,7 @@ export default function WebDevelopment() {
       <Helmet>
         <title>Web Development Services | Vexorix Technologies</title>
         <meta name="description" content="Vexorix builds modern, scalable web applications — React, Next.js, Node.js, PostgreSQL, MongoDB. Performance, SEO and accessibility engineered from day one." />
-        <link rel="canonical" href="https://vexorixtechnologies.in/services/web-development" />
+        <link rel="canonical" href="https://www.vexorixtechnologies.in/services/web-development" />
       </Helmet>
 
       <header className="sticky top-0 z-40 border-b border-white/10 bg-[#0a0a0f]/85 backdrop-blur-xl">
