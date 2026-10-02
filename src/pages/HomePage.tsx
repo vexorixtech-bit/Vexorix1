@@ -321,7 +321,7 @@ function HomePage() {
                     <div className={`text-7xl sm:text-8xl font-bold leading-none text-white/60 mt-1 mb-6 transition-colors duration-300 md:group-hover/card:text-[#FFD700]/25`}>
                       {phase.num}
                     </div>
-                    <div className={`transition-all duration-300 md:group-hover/card:opacity-100 ${activePhases.includes(idx) ? 'opacity-100 max-h-[40rem]' : 'opacity-0 max-h-0 overflow-hidden md:opacity-0 md:max-h-none md:overflow-visible'}`}>
+                    <div className={`transition-opacity duration-300 md:flex md:flex-col md:items-center md:justify-center md:text-center md:group-hover/card:opacity-100 ${activePhases.includes(idx) ? 'flex flex-col items-center justify-center text-center opacity-100' : 'hidden md:opacity-0'}`}>
                       <h3 className="font-bold text-xl sm:text-2xl mb-3">{phase.title}</h3>
                       <p className="text-gray-400 text-sm sm:text-base leading-relaxed">{phase.desc}</p>
                     </div>
