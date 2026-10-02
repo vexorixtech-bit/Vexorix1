@@ -313,15 +313,15 @@ function HomePage() {
               <div
                 key={phase.num}
                 onClick={() => setActivePhases((prev) => prev.includes(idx) ? prev : [...prev, idx])}
-                className={`group/card relative flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-7 min-h-[25rem] sm:min-h-[30rem] transition-all duration-300 hover:border-[#FFD700]/40 hover:bg-white/[0.05] hover:shadow-[0_20px_50px_-15px_rgba(255,215,0,0.25)] reveal delay-${idx + 1} ${activePhases.includes(idx) ? 'md:hover:border-[#FFD700]/40' : ''}`}
+                className={`group/card relative flex flex-col cursor-pointer rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-7 min-h-[25rem] sm:min-h-[30rem] transition-all duration-300 hover:border-[#FFD700]/40 hover:bg-white/[0.05] hover:shadow-[0_20px_50px_-15px_rgba(255,215,0,0.25)] reveal delay-${idx + 1} ${activePhases.includes(idx) ? 'md:hover:border-[#FFD700]/40' : ''}`}
               >
-                <div className="relative flex-1 overflow-hidden">
-                  <div className="flex flex-col items-center justify-center text-center">
+                <div className="relative flex-1">
+                  <div className="flex flex-col items-center justify-center text-center h-full">
                     <span className="text-sm font-bold uppercase tracking-[0.4em] text-[#FFD700]/70">Phase</span>
                     <div className={`text-7xl sm:text-8xl font-bold leading-none text-white/60 mt-1 mb-6 transition-colors duration-300 md:group-hover/card:text-[#FFD700]/25`}>
                       {phase.num}
                     </div>
-                    <div className={`flex flex-col items-center justify-center min-h-full py-2 text-center transition-opacity duration-300 md:group-hover/card:opacity-100 ${activePhases.includes(idx) ? 'opacity-100' : 'opacity-0 md:opacity-0'}`}>
+                    <div className={`transition-all duration-300 md:group-hover/card:opacity-100 ${activePhases.includes(idx) ? 'opacity-100 max-h-[40rem]' : 'opacity-0 max-h-0 overflow-hidden md:opacity-0 md:max-h-none md:overflow-visible'}`}>
                       <h3 className="font-bold text-xl sm:text-2xl mb-3">{phase.title}</h3>
                       <p className="text-gray-400 text-sm sm:text-base leading-relaxed">{phase.desc}</p>
                     </div>
